@@ -1,0 +1,18 @@
+#col-der {
+  background-image: url("../assets/fondoLogin.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+}
+
+#col-izq {
+  background-color: rgb(19, 20, 39);
+}
+
+#btnIngresar {
+  background: #1d355b;
+}
+
+#btnRegistrar {
+  background: #182c4b5a;
+}
