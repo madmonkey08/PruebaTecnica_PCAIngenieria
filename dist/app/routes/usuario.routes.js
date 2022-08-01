@@ -9,6 +9,13 @@ const usuario_controller_1 = require("../controllers/usuario.controller");
 const validarCampos_1 = __importDefault(require("../middlewares/validarCampos"));
 const router = (0, express_1.Router)();
 router.get("/", usuario_controller_1.obtenerUsuarios);
+router.delete("/:cedula", usuario_controller_1.eliminarUsuario);
+router.put("/:cedula", [
+    (0, express_validator_1.check)("nombre", "El nombre del usuario es obligatorio!").not().isEmpty(),
+    (0, express_validator_1.check)("nombre", "El nombre del usuario debe tener al menos 4 caracteres!").isLength({ min: 4 }),
+    (0, express_validator_1.check)("monto", "El monto debe ser un valor numérico!").isNumeric(),
+    validarCampos_1.default
+], usuario_controller_1.actualizarUsuario);
 router.post("/", [
     (0, express_validator_1.check)("cedula", "La cédula es obligatoria!").not().isEmpty(),
     (0, express_validator_1.check)("cedula", "La cédula debe ser un valor numérico!").isNumeric(),
@@ -18,6 +25,8 @@ router.post("/", [
     (0, express_validator_1.check)("contrasena", "La contraseña es obligatoria!").not().isEmpty(),
     (0, express_validator_1.check)("contrasena", "La contraseña debe tener al menos 4 caracteres!").isLength({ min: 4 }),
     (0, express_validator_1.check)("rol", "El rol es obligatorio!").not().isEmpty(),
+    (0, express_validator_1.check)("monto", "El monto es obligatorio!").not().isEmpty(),
+    (0, express_validator_1.check)("monto", "El monto debe ser un valor numérico!").isNumeric(),
     validarCampos_1.default
 ], usuario_controller_1.crearUsuario);
 router.post("/login", [

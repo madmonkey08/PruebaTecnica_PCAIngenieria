@@ -28,7 +28,7 @@ const crearUsuario = async (req: Request, res: Response) => {
                 nombre: body.nombre,
                 contrasena: body.contrasena,
                 rol: body.rol,
-                monto: 15000
+                monto: body.monto
             });
 
             await usuario.save();
@@ -113,4 +113,82 @@ const obtenerUsuarios = async (req: Request, res: Response) => {
     }
 }
 
-export { crearUsuario, login, obtenerUsuarios };
+const eliminarUsuario = async (req: Request, res: Response) => {
+
+    try {
+
+        const { cedula } = req.params;
+
+
+        const eliminar = await Usuario.findOneAndDelete({ cedula });
+
+        if (!eliminar) {
+            return res.json({
+                ok: false,
+                msg: "El usuario no existe."
+            });
+        }
+
+        res.json({
+            ok: true,
+            msg: "Usuario eliminado correctamente!"
+        });
+
+    } catch (err) {
+        res.json({
+            ok: false,
+            msg: "Error interno, por favor hable con el administrador.",
+            err: err,
+        });
+    }
+}
+
+export const actualizarUsuario = async (req: Request, res: Response) => {
+
+    try {
+        const { cedula } = req.params;
+        let { body } = req;
+
+        if (body.monto < 0) {
+            return res.json({
+                ok: false,
+                msg: "El monto no puede ser negativo."
+            });
+        }
+
+        if (body.contrasena.length !== 0) {
+            const salt = bcrypt.genSaltSync();
+            body.contrasena = bcrypt.hashSync(body.contrasena, salt);
+        }
+
+        let actualizar;
+
+        if (body.contrasena.length === 0) {
+            actualizar = await Usuario.findOneAndUpdate({ cedula }, { nombre: body.nombre, monto: body.monto });
+        } else {
+            actualizar = await Usuario.findOneAndUpdate({ cedula }, { nombre: body.nombre, monto: body.monto, contrasena: body.contrasena });
+        }
+
+        if (!actualizar) {
+            return res.json({
+                ok: false,
+                msg: "El usuario no existe."
+            });
+        }
+
+        res.json({
+            ok: true,
+            msg: "Usuario actualizado correctamente!"
+        });
+
+    } catch (err) {
+        res.json({
+            ok: false,
+            msg: 'Error interno, comuníquese con los desarrolladores.',
+            err
+        });
+        console.log(err);
+    }
+}
+
+export { crearUsuario, login, obtenerUsuarios, eliminarUsuario };

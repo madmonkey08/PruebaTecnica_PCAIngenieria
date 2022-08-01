@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerUsuarios = exports.login = exports.crearUsuario = void 0;
+exports.eliminarUsuario = exports.obtenerUsuarios = exports.login = exports.crearUsuario = exports.actualizarUsuario = void 0;
 const usuario_1 = __importDefault(require("../models/usuario"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const validar_jwt_1 = __importDefault(require("../helpers/validar-jwt"));
@@ -35,7 +35,7 @@ const crearUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 nombre: body.nombre,
                 contrasena: body.contrasena,
                 rol: body.rol,
-                monto: 15000
+                monto: body.monto
             });
             yield usuario.save();
             res.status(201).json({
@@ -108,4 +108,70 @@ const obtenerUsuarios = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.obtenerUsuarios = obtenerUsuarios;
+const eliminarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { cedula } = req.params;
+        const eliminar = yield usuario_1.default.findOneAndDelete({ cedula });
+        if (!eliminar) {
+            return res.json({
+                ok: false,
+                msg: "El usuario no existe."
+            });
+        }
+        res.json({
+            ok: true,
+            msg: "Usuario eliminado correctamente!"
+        });
+    }
+    catch (err) {
+        res.json({
+            ok: false,
+            msg: "Error interno, por favor hable con el administrador.",
+            err: err,
+        });
+    }
+});
+exports.eliminarUsuario = eliminarUsuario;
+const actualizarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { cedula } = req.params;
+        let { body } = req;
+        if (body.monto < 0) {
+            return res.json({
+                ok: false,
+                msg: "El monto no puede ser negativo."
+            });
+        }
+        if (body.contrasena.length !== 0) {
+            const salt = bcrypt_1.default.genSaltSync();
+            body.contrasena = bcrypt_1.default.hashSync(body.contrasena, salt);
+        }
+        let actualizar;
+        if (body.contrasena.length === 0) {
+            actualizar = yield usuario_1.default.findOneAndUpdate({ cedula }, { nombre: body.nombre, monto: body.monto });
+        }
+        else {
+            actualizar = yield usuario_1.default.findOneAndUpdate({ cedula }, { nombre: body.nombre, monto: body.monto, contrasena: body.contrasena });
+        }
+        if (!actualizar) {
+            return res.json({
+                ok: false,
+                msg: "El usuario no existe."
+            });
+        }
+        res.json({
+            ok: true,
+            msg: "Usuario actualizado correctamente!"
+        });
+    }
+    catch (err) {
+        res.json({
+            ok: false,
+            msg: 'Error interno, comuníquese con los desarrolladores.',
+            err
+        });
+        console.log(err);
+    }
+});
+exports.actualizarUsuario = actualizarUsuario;
 //# sourceMappingURL=usuario.controller.js.map
