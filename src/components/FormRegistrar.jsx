@@ -25,7 +25,8 @@ export const FormRegistrar = ({ setFormulario }) => {
             cedula,
             nombre,
             contrasena,
-            rol: "jugador"
+            rol: "jugador",
+            monto: 15000
         }
 
         const registro = await axiosPetition("/api/usuarios", datos, "POST");

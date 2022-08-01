@@ -10,7 +10,7 @@ export const NavBar = () => {
         <ul id="navbar" className="flex w-screen items-center pl-4 text-white py-6 absolute">
             <li className="cursor-pointer pr-8 font-bold"><Link to="/">Logo</Link></li>
             <li className="cursor-pointer pr-4 hover:underline"><Link to="/">Jugar</Link></li>
-            <li className="cursor-pointer pr-4 hover:underline"><Link to="/usuarios">Crear Usuarios</Link></li>
+            <li className="cursor-pointer pr-4 hover:underline"><Link to="/usuarios">Gestionar usuarios</Link></li>
             <li
                 className="cursor-pointer hover:underline"
                 onClick={() => {

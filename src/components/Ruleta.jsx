@@ -10,6 +10,10 @@ const data = [
     { option: '😎', style: { backgroundColor: "#dc143c", textColor: "white" } },
     { option: '🔥', style: { backgroundColor: "#1b1b1b", textColor: "white" } },
     { option: '😎', style: { backgroundColor: "#dc143c", textColor: "white" } },
+    { option: '🔥', style: { backgroundColor: "#1b1b1b", textColor: "white" } },
+    { option: '😎', style: { backgroundColor: "#dc143c", textColor: "white" } },
+    { option: '🔥', style: { backgroundColor: "#1b1b1b", textColor: "white" } },
+    { option: '😎', style: { backgroundColor: "#dc143c", textColor: "white" } },
 ]
 
 export default () => {
@@ -35,7 +39,7 @@ export default () => {
                 onStopSpinning={() => {
                     setMustSpin(false);
                 }}
-
+                spinDuration={0.1}
             />
             <button id="btnGirar" className="text-white rounded-md outline-none mt-8 py-1 px-8" onClick={handleSpinClick}>Gira!</button>
         </div>
