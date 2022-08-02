@@ -9,9 +9,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/fondoCasino.jfif");
-  background-size: cover;
-  background-position: center;
+  background: rgb(0, 25, 37);
+  background: radial-gradient(
+    circle,
+    rgba(0, 25, 37, 1) 0%,
+    rgba(0, 20, 31, 1) 16%,
+    rgba(0, 9, 14, 1) 57%
+  );
 }
 
 code {

@@ -1,11 +1,13 @@
+import React from "react";
+import { Login } from "./components/Login";
+import { RuletaPage } from "./pages/RuletaPage";
+import { UsuariosPage } from "./pages/UsuariosPage";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import { Login } from "./components/Login";
-import { RuletaPage } from "./pages/RuletaPage";
-import { UsuariosPage } from "./pages/UsuariosPage";
 
 function App() {
 

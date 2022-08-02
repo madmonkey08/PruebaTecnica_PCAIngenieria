@@ -5,14 +5,14 @@
   opacity: 0.4;
 }
 
-#col-izq {
+/* #col-izq {
   background-color: rgb(19, 20, 39);
-}
+} */
 
 #btnIngresar {
-  background: #1d355b;
+  background: #2639575a;
 }
 
 #btnRegistrar {
-  background: #182c4b5a;
+  background: #2639575a;
 }

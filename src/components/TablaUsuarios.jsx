@@ -56,16 +56,16 @@ export const TablaUsuarios = ({ bandera, setFormulario, setData }) => {
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    <th scope="col" className="py-3 px-6 bg-gray-50 dark:bg-gray-800">
                         Cédula
                     </th>
-                    <th scope="col" class="py-3 px-6">
+                    <th scope="col" className="py-3 px-6">
                         Nombre
                     </th>
-                    <th scope="col" class="py-3 px-6 bg-gray-50 dark:bg-gray-800">
+                    <th scope="col" className="py-3 px-6 bg-gray-50 dark:bg-gray-800">
                         Monto
                     </th>
-                    <th scope="col" class="py-3 px-6">
+                    <th scope="col" className="py-3 px-6">
                         Acciones
                     </th>
                 </tr>
@@ -74,7 +74,7 @@ export const TablaUsuarios = ({ bandera, setFormulario, setData }) => {
                 {
                     usuarios?.map((usuario, index) => {
                         return <tr className="border-b border-gray-200 dark:border-gray-700" key={index}>
-                            <th scope="row" class="py-4 px-6 font-medium pr-24 text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                            <th scope="row" className="py-4 px-6 font-medium pr-24 text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
                                 {usuario.cedula}
                             </th>
                             <td className="py-4 px-6 pr-24">
