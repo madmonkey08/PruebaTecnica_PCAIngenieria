@@ -59,7 +59,7 @@ export const FormRegistrar = ({ setFormulario }) => {
     }
 
     return (
-        <form className="flex flex-col w-full px-36" onSubmit={registrarUsuario}>
+        <form className="flex flex-col w-full px-12 md:px-36" onSubmit={registrarUsuario}>
             <h2 className="text-md">Registrate</h2>
             <h2 className="text-3xl mb-8 font-bold">Gira y gana</h2>
             <input

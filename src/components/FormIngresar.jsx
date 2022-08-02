@@ -37,7 +37,7 @@ export const FormIngresar = ({ setFormulario }) => {
     }
 
     return (
-        <form className="flex flex-col w-full px-36" onSubmit={iniciarSesion}>
+        <form className="flex flex-col w-full px-12 md:px-36" onSubmit={iniciarSesion}>
             <h2 className="text-md">Bienvenido a</h2>
             <h2 className="text-3xl mb-8 font-bold">Gira y gana</h2>
             <input
