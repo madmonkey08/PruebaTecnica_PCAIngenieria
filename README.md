@@ -10,9 +10,9 @@ Si el usuario no le atina al color resultante, perderá lo apostado.
 
 ## Detalles técnicos
 
-La aplicación fue desarrollada con el stack MERN (MongoDB, Express, React y NodeJS). Para el lado del frontend, se desarrolló con la librería de React, se creó el sitio por componentes y sigiendo un desarrollo SPA. Se usó Typescript en el backend debido a su versatilidad y a su vez a la organización que provee debido a su tipado fuerte, también se considera que es un lenguaje que permite una fácil lectura y mantenimiento del código. Para la creación del servidor, se utilizó la librería Express, ya que permite una mayor facilidad y rapidez al momento de crear el servidor. Como gestor de base de datos, se hizo uso de MongoDB Atlas, un gestor en línea de base de datos no relacionales. Y por último, en cuanto el despliegue de la aplicación, se usó Heroku.
+La aplicación fue desarrollada con el stack MERN (MongoDB, Express, React y NodeJS). Para el lado del frontend, se desarrolló con la librería de React, se creó el sitio por componentes y sigiendo un desarrollo SPA. Se usó Typescript en el backend debido a su versatilidad y a su vez a la organización que provee debido a su tipado fuerte, también se considera que es un lenguaje que permite una fácil lectura y mantenimiento del código. Para la creación del servidor, se utilizó la librería Express, ya que permite una mayor facilidad y rapidez al momento de crear el servidor. Como gestor de base de datos, se hizo uso de MongoDB Atlas, un gestor en línea de base de datos no relacionales. En cuanto el despliegue de la aplicación, se usó Heroku y adicionalmente, las contraseñas de los usuarios, han sido encriptadas con la librería bcrypt.
 
-### Indicaciones para el uso de la aplicación
+## Indicaciones para el uso de la aplicación
 
 Inicialmente, se tiene la vista de login para ingresar al sitio, en esta se encuentran dos campos de texto, uno para digitar la cédula y el otro para la contraseña. Por defecto, se encuentra digitada la información del administrador, pero en caso de que no sea así, dejaré las credenciales del usuario con rol administrador:
 
