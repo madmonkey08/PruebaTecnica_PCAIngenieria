@@ -13,7 +13,7 @@ export const Ruleta = ({ setFormulario, usuario, color, apuesta, setBandera, ban
 
         let monto;
         let ganado;
-        let dineroApostado = usuario.monto * (apuesta / 100);
+        let dineroApostado = Math.floor(usuario.monto * (apuesta / 100));
 
         if (color === "Rojo" || color === "Negro") {
             ganado = dineroApostado * 2;
@@ -115,12 +115,7 @@ export const Ruleta = ({ setFormulario, usuario, color, apuesta, setBandera, ban
 
             <div className="flex">
                 <div className="flex flex-col absolute text-white left-8 bottom-4">
-                    {
-                        usuario.monto !== apuesta ?
-                            <p>Apostaste COP {usuario.monto * (apuesta / 100)} al color {color}</p>
-                            :
-                            <p>Apostaste COP {usuario.monto} al color {color}</p>
-                    }
+                    <p>Apostaste COP {Math.floor(usuario.monto * (apuesta / 100))} al color {color}</p>
                 </div>
                 <button id="btnGirar" className="text-white rounded-md outline-none mt-8 py-1 px-8 mr-4" onClick={handleSpinClick}>Gira!</button>
                 <button

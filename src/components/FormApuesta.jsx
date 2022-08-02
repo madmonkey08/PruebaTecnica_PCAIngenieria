@@ -20,7 +20,7 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
 
     const restarDinero = async () => {
 
-        let monto = usuario.monto - (usuario.monto * (apuesta / 100));
+        let monto = usuario.monto - (Math.floor(usuario.monto * (apuesta / 100)));
 
         const peticion = await axiosPetition(`/api/usuarios/monto/${usuario.cedula}`, { monto }, "PUT");
 
@@ -66,15 +66,15 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
                             className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full dark:bg-gray-800 text-white">
                             <option value="0" onClick={() => setApuesta(0)}>Selecciona una opción</option>
                             <option value="100" onClick={() => { setApuesta(100) }}>All In COP {usuario.monto}</option>
-                            <option value="11" onClick={() => setApuesta(11)}>11% COP {usuario.monto * (11 / 100)}</option>
-                            <option value="12" onClick={() => setApuesta(12)}>12% COP {usuario.monto * (12 / 100)}</option>
-                            <option value="13" onClick={() => setApuesta(13)}>13% COP {usuario.monto * (13 / 100)}</option>
-                            <option value="14" onClick={() => setApuesta(14)}>14% COP {usuario.monto * (14 / 100)}</option>
-                            <option value="15" onClick={() => setApuesta(15)}>15% COP {usuario.monto * (15 / 100)}</option>
-                            <option value="16" onClick={() => setApuesta(16)}>16% COP {usuario.monto * (16 / 100)}</option>
-                            <option value="17" onClick={() => setApuesta(17)}>17% COP {usuario.monto * (17 / 100)}</option>
-                            <option value="18" onClick={() => setApuesta(18)}>18% COP {usuario.monto * (18 / 100)}</option>
-                            <option value="19" onClick={() => setApuesta(19)}>19% COP {usuario.monto * (19 / 100)}</option>
+                            <option value="11" onClick={() => setApuesta(11)}>11% COP {Math.floor(usuario.monto * (11 / 100))}</option>
+                            <option value="12" onClick={() => setApuesta(12)}>12% COP {Math.floor(usuario.monto * (12 / 100))}</option>
+                            <option value="13" onClick={() => setApuesta(13)}>13% COP {Math.floor(usuario.monto * (13 / 100))}</option>
+                            <option value="14" onClick={() => setApuesta(14)}>14% COP {Math.floor(usuario.monto * (14 / 100))}</option>
+                            <option value="15" onClick={() => setApuesta(15)}>15% COP {Math.floor(usuario.monto * (15 / 100))}</option>
+                            <option value="16" onClick={() => setApuesta(16)}>16% COP {Math.floor(usuario.monto * (16 / 100))}</option>
+                            <option value="17" onClick={() => setApuesta(17)}>17% COP {Math.floor(usuario.monto * (17 / 100))}</option>
+                            <option value="18" onClick={() => setApuesta(18)}>18% COP {Math.floor(usuario.monto * (18 / 100))}</option>
+                            <option value="19" onClick={() => setApuesta(19)}>19% COP {Math.floor(usuario.monto * (19 / 100))}</option>
                         </select>
                         :
                         <input className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full cursor-not-allowed dark:bg-gray-800 text-white" readOnly value={"All In - " + usuario.monto} />
