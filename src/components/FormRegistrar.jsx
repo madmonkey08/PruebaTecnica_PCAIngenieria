@@ -21,6 +21,26 @@ export const FormRegistrar = ({ setFormulario }) => {
     const registrarUsuario = async (e) => {
         e.preventDefault();
 
+        e.preventDefault();
+
+        if (confirmcontra.length === 0) {
+            return Swal.fire({
+                title: 'Uy!',
+                text: "Debes confirmar tu contraseña.",
+                icon: 'error',
+                confirmButtonText: 'Entendido'
+            });
+        }
+
+        if (confirmcontra !== contrasena) {
+            return Swal.fire({
+                title: 'Uy!',
+                text: "Las contraseñas no coinciden.",
+                icon: 'warning',
+                confirmButtonText: 'Entendido'
+            });
+        }
+
         const datos = {
             cedula,
             nombre,
