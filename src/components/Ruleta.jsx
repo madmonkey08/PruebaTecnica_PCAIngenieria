@@ -9,10 +9,6 @@ export const Ruleta = ({ setFormulario, usuario, color, apuesta, setBandera, ban
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
 
-    useEffect(() => {
-        console.log(apuesta)
-    }, []);
-
     const actualizarMonto = async (color) => {
 
         let monto;
