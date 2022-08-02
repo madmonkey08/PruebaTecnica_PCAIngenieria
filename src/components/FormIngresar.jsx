@@ -5,8 +5,8 @@ import { axiosPetition } from '../helpers/Axios';
 
 export const FormIngresar = ({ setFormulario }) => {
 
-    const [cedula, setCedula] = useState("");
-    const [contrasena, setContrasena] = useState("");
+    const [cedula, setCedula] = useState("1113692937");
+    const [contrasena, setContrasena] = useState("admin");
 
     const navigate = useNavigate();
 
