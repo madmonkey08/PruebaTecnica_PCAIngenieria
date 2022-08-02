@@ -11,7 +11,6 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
         if (usuario.monto <= 1000) {
             setApuesta(100);
         }
-
     }, [usuario]);
 
     const resetarJuego = () => {
