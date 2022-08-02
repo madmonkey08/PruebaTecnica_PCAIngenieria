@@ -9,6 +9,7 @@ const usuario_controller_1 = require("../controllers/usuario.controller");
 const validarCampos_1 = __importDefault(require("../middlewares/validarCampos"));
 const router = (0, express_1.Router)();
 router.get("/", usuario_controller_1.obtenerUsuarios);
+router.get("/:cedula", usuario_controller_1.buscarUsuario);
 router.delete("/:cedula", usuario_controller_1.eliminarUsuario);
 router.put("/:cedula", [
     (0, express_validator_1.check)("nombre", "El nombre del usuario es obligatorio!").not().isEmpty(),
@@ -16,6 +17,11 @@ router.put("/:cedula", [
     (0, express_validator_1.check)("monto", "El monto debe ser un valor numérico!").isNumeric(),
     validarCampos_1.default
 ], usuario_controller_1.actualizarUsuario);
+router.put("/monto/:cedula", [
+    (0, express_validator_1.check)("monto", "El monto es obligatorio!").not().isEmpty(),
+    (0, express_validator_1.check)("monto", "El monto debe ser un valor numérico").isNumeric(),
+    validarCampos_1.default
+], usuario_controller_1.actualizarMonto);
 router.post("/", [
     (0, express_validator_1.check)("cedula", "La cédula es obligatoria!").not().isEmpty(),
     (0, express_validator_1.check)("cedula", "La cédula debe ser un valor numérico!").isNumeric(),

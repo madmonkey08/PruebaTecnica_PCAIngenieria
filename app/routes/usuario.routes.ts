@@ -1,13 +1,15 @@
 import { Router } from "express";
 import { check } from "express-validator";
 
-import { actualizarUsuario, crearUsuario, eliminarUsuario, login, obtenerUsuarios } from "../controllers/usuario.controller";
+import { actualizarMonto, actualizarUsuario, buscarUsuario, crearUsuario, eliminarUsuario, login, obtenerUsuarios } from "../controllers/usuario.controller";
 
 import validarCampos from "../middlewares/validarCampos";
 
 const router = Router();
 
 router.get("/", obtenerUsuarios);
+
+router.get("/:cedula", buscarUsuario);
 
 router.delete("/:cedula", eliminarUsuario);
 
@@ -17,6 +19,12 @@ router.put("/:cedula", [
     check("monto", "El monto debe ser un valor numérico!").isNumeric(),
     validarCampos
 ], actualizarUsuario);
+
+router.put("/monto/:cedula", [
+    check("monto", "El monto es obligatorio!").not().isEmpty(),
+    check("monto", "El monto debe ser un valor numérico").isNumeric(),
+    validarCampos
+], actualizarMonto);
 
 router.post("/", [
     check("cedula", "La cédula es obligatoria!").not().isEmpty(),

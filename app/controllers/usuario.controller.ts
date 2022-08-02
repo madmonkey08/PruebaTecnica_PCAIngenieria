@@ -80,7 +80,7 @@ const login = async (req: Request, res: Response) => {
 
         res.json({
             ok: true,
-            usuario: usuario.get("nombre"),
+            usuario: usuario.get("cedula"),
             token
         });
 
@@ -102,6 +102,35 @@ const obtenerUsuarios = async (req: Request, res: Response) => {
         res.json({
             ok: true,
             usuarios
+        });
+
+    } catch (err) {
+        res.json({
+            ok: false,
+            msg: "Error interno, por favor hable con el administrador.",
+            err: err,
+        });
+    }
+}
+
+const buscarUsuario = async (req: Request, res: Response) => {
+
+    try {
+
+        const { cedula } = req.params;
+
+        const usuario = await Usuario.findOne({ cedula });
+
+        if (!usuario) {
+            return res.json({
+                ok: false,
+                msg: "Usuario no encontrado."
+            });
+        }
+
+        res.json({
+            ok: true,
+            usuario
         });
 
     } catch (err) {
@@ -187,8 +216,37 @@ export const actualizarUsuario = async (req: Request, res: Response) => {
             msg: 'Error interno, comuníquese con los desarrolladores.',
             err
         });
-        console.log(err);
     }
 }
 
-export { crearUsuario, login, obtenerUsuarios, eliminarUsuario };
+const actualizarMonto = async (req: Request, res: Response) => {
+
+    try {
+
+        const { cedula } = req.params;
+        const { monto } = req.body;
+
+        const actualizar = await Usuario.findOneAndUpdate({ cedula }, { monto });
+
+        if (!actualizar) {
+            return res.json({
+                ok: false,
+                msg: 'No se pudo actualizar el monto del usuario.'
+            });
+        }
+
+        res.json({
+            ok: true,
+            msg: 'Monto actualizado correctamente.'
+        });
+
+    } catch (err) {
+        res.json({
+            ok: false,
+            msg: 'Error interno, comuníquese con los desarrolladores.',
+            err
+        });
+    }
+}
+
+export { crearUsuario, login, obtenerUsuarios, buscarUsuario, eliminarUsuario, actualizarMonto };
