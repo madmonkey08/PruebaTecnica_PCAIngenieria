@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# Prueba técnica PCA Ingeniería
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio contiene la solución a la prueba técnica planteada por la empresa PCA Ingeniería, la cual consiste en el desarrollo de una ruleta con la cual, todo usuario que inicie sesión  en el sistema pueda interactuar, girándola de tal manera que de como resultado uno de los tres colores posibles (rojo, negro y verde) con sus respectivas probabilidades (49.5%, 49.5% y 1%). Cada usuario podrá apostar por el color que considere dará como resultado la ruleta y así podrá duplicar lo ganado, ganar diez veces más de lo apostado o directamente, perder el dinero apostado. Los resultados están determinados por los colores, de la siguiente manera:
 
-## Available Scripts
+Si el usuario apostó al color rojo o negro y la ruleta arroja estos colores, se duplicará el dinero apostado.
 
-In the project directory, you can run:
+Si el usuario apostó al color verde y la ruleta arroja verde, gana diez veces lo que apostó.
 
-### `npm start`
+Si el usuario no le atina al color resultante, perderá lo apostado.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Detalles técnicos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La aplicación fue desarrollada con el stack MERN (MongoDB, Express, React y NodeJS). Para el lado del frontend, se desarrolló con la librería de React, se creó el sitio por componentes y sigiendo un desarrollo SPA. Se usó Typescript en el backend debido a su versatilidad y a su vez a la organización que provee debido a su tipado fuerte, también se considera que es un lenguaje que permite una fácil lectura y mantenimiento del código. Para la creación del servidor, se utilizó la librería Express, ya que permite una mayor facilidad y rapidez al momento de crear el servidor. Como gestor de base de datos, se hizo uso de MongoDB Atlas, un gestor en línea de base de datos no relacionales. Y por último, en cuanto el despliegue de la aplicación, se usó Heroku.
 
-### `npm test`
+### Indicaciones para el uso de la aplicación
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicialmente, se tiene la vista de login para ingresar al sitio, en esta se encuentran dos campos de texto, uno para digitar la cédula y el otro para la contraseña. Por defecto, se encuentra digitada la información del administrador, pero en caso de que no sea así, dejaré las credenciales del usuario con rol administrador:
 
-### `npm run build`
+Campo cédula: 1113692937
+Campo contraseña: admin
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Cabe aclarar que el usuario de rol administrador, es el único que puede gestionar la información de los usuarios, así como cambiar su nombre, monto y contraseña, eliminar usuario y crear uno nuevo, (los demás usuarios de rol jugador tienen acceso denegado a este componente). Una vez diligenciados los campos se da click al botón "Ingresar" para acceder al sitio. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Más abajo se encuentra el botón de "Registrame!" el cual muestra el formulario para la creación de nuevos usuarios, cada usuario nuevo se creará con un monto básico de 15000 pesos.
