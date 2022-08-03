@@ -73,27 +73,46 @@ export const Ruleta = ({ setFormulario, usuario, color, apuesta, setBandera, ban
         if (prizeNumber !== 0 && prizeNumber % 2 === 0) {
             if (color === "Rojo") {
                 actualizarMonto(color);
+            } else {
+                return Swal.fire({
+                    title: 'Uy!',
+                    text: "Más suerte a la próxima! \n No le atinaste esta vez, inténtalo de nuevo!",
+                    icon: 'error',
+                    confirmButtonText: 'Entendido'
+                }).then(() => {
+                    setFormulario("apuesta");
+                    setBandera(!bandera);
+                });
             }
         } else if (prizeNumber !== 0 && prizeNumber % 2 !== 0) {
             if (color === "Negro") {
                 actualizarMonto(color);
+            } else {
+                return Swal.fire({
+                    title: 'Uy!',
+                    text: "Más suerte a la próxima! \n No le atinaste esta vez, inténtalo de nuevo!",
+                    icon: 'error',
+                    confirmButtonText: 'Entendido'
+                }).then(() => {
+                    setFormulario("apuesta");
+                    setBandera(!bandera);
+                });
             }
         } else if (prizeNumber === 0) {
             if (color === "Verde") {
                 actualizarMonto(color);
+            } else {
+                return Swal.fire({
+                    title: 'Uy!',
+                    text: "Más suerte a la próxima! \n No le atinaste esta vez, inténtalo de nuevo!",
+                    icon: 'error',
+                    confirmButtonText: 'Entendido'
+                }).then(() => {
+                    setFormulario("apuesta");
+                    setBandera(!bandera);
+                });
             }
         }
-
-        return Swal.fire({
-            title: 'Uy!',
-            text: "Más suerte a la próxima! \n No le atinaste esta vez, inténtalo de nuevo!",
-            icon: 'error',
-            confirmButtonText: 'Entendido'
-        }).then(() => {
-            setFormulario("apuesta");
-            setBandera(!bandera);
-        });
-
     }
 
     return (
