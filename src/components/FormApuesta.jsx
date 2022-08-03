@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { axiosPetition } from '../helpers/Axios';
+import "../styles/formapuesta.css";
 
 export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApuesta, setFormulario }) => {
 
@@ -63,7 +64,7 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
                         <select
                             value={apuesta}
                             onChange={(e) => setApuesta(e.target.value)}
-                            className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full dark:bg-gray-800 text-white">
+                            className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full bg-gray-800 text-white">
                             <option value="0" onClick={() => setApuesta(0)}>Selecciona una opción</option>
                             <option value="100" onClick={() => { setApuesta(100) }}>All In COP {usuario.monto}</option>
                             <option value="11" onClick={() => setApuesta(11)}>11% COP {Math.floor(usuario.monto * (11 / 100))}</option>
@@ -77,7 +78,7 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
                             <option value="19" onClick={() => setApuesta(19)}>19% COP {Math.floor(usuario.monto * (19 / 100))}</option>
                         </select>
                         :
-                        <input className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full cursor-not-allowed dark:bg-gray-800 text-white" readOnly value={"All In - " + usuario.monto} />
+                        <input className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full cursor-not-allowed bg-gray-800 text-white" readOnly value={"All In - " + usuario.monto} />
                 }
                 <input
                     id="btnIngresar"
