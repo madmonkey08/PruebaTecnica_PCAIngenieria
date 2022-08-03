@@ -28,7 +28,7 @@ export const FormIngresar = ({ setFormulario }) => {
             navigate("/");
         } else {
             Swal.fire({
-                title: 'Ay!',
+                title: 'Uy!',
                 text: peticion.msg,
                 icon: 'error',
                 confirmButtonText: 'Entendido'

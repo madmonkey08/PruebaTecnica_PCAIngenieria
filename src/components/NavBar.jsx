@@ -24,12 +24,6 @@ export const NavBar = () => {
 
         if (!peticion.ok) {
             navigate("/login");
-            return Swal.fire({
-                title: 'Espera!',
-                text: peticion.msg,
-                icon: 'error',
-                confirmButtonText: 'Entendido'
-            });
         }
         setUsuario(peticion.usuario);
     }
