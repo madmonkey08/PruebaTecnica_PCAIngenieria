@@ -4,7 +4,6 @@ import { Ruleta } from '../components/Ruleta';
 import { useNavigate } from 'react-router-dom';
 import { FormApuesta } from '../components/FormApuesta';
 import { axiosPetition } from '../helpers/Axios';
-import Swal from 'sweetalert2';
 
 export const RuletaPage = () => {
 
@@ -35,12 +34,6 @@ export const RuletaPage = () => {
 
         if (!peticion.ok) {
             navigate("/login");
-            return Swal.fire({
-                title: 'Espera!',
-                text: peticion.msg,
-                icon: 'error',
-                confirmButtonText: 'Entendido'
-            });
         }
         setUsuario(peticion.usuario);
     }
