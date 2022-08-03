@@ -53,34 +53,34 @@ export const TablaUsuarios = ({ bandera, setFormulario, setData }) => {
     }
 
     return (
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-400">
+            <thead className="text-xs  uppercasetext-gray-400">
                 <tr>
-                    <th scope="col" className="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                        Cédula
+                    <th scope="col" className="py-3 px-6 bg-gray-800">
+                        CÉDULA
                     </th>
                     <th scope="col" className="py-3 px-6">
-                        Nombre
+                        NOMBRE
                     </th>
-                    <th scope="col" className="py-3 px-6 bg-gray-50 dark:bg-gray-800">
-                        Monto
+                    <th scope="col" className="py-3 px-6 bg-gray-800">
+                        MONTO
                     </th>
                     <th scope="col" className="py-3 px-6">
-                        Acciones
+                        ACCIONES
                     </th>
                 </tr>
             </thead>
             <tbody>
                 {
                     usuarios?.map((usuario, index) => {
-                        return <tr className="border-b border-gray-200 dark:border-gray-700" key={index}>
-                            <th scope="row" className="py-4 px-6 font-medium pr-24 text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+                        return <tr className="border-b border-gray-700" key={index}>
+                            <th scope="row" className="py-4 px-6 font-medium pr-24 text-white whitespace-nowrap bg-gray-800">
                                 {usuario.cedula}
                             </th>
                             <td className="py-4 px-6 pr-24">
                                 {usuario.nombre}
                             </td>
-                            <td className="py-4 px-6 pr-24 bg-gray-50 dark:bg-gray-800">
+                            <td className="py-4 px-6 pr-24 bg-gray-800">
                                 {usuario.monto}
                             </td>
                             <td className="py-4 px-6 pr-24">

@@ -49,7 +49,7 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
                 <select
                     value={color}
                     onChange={(e) => setColor(e.target.value)}
-                    className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full dark:bg-gray-800 text-white"
+                    className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full bg-gray-800 text-white"
                 >
                     <option value="0" onClick={() => setColor(0)} className="text-white">Selecciona una opción</option>
                     <option value="Rojo" onClick={() => setColor("Rojo")}>Rojo - Ganas el doble - 49.5% de probabilidad</option>
@@ -57,7 +57,7 @@ export const FormApuesta = ({ usuario, color = 0, apuesta = 0, setColor, setApue
                     <option value="Verde" onClick={() => setColor("Verde")}>Verde - Ganas el décuple - 1% de probabilidad</option>
                 </select>
                 <label className="mt-4">Tu dinero actual es</label>
-                <input value={usuario.monto || "0"} className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full dark:bg-gray-800 text-white cursor-not-allowed" readOnly />
+                <input value={usuario.monto || "0"} className="outline-none rounded-lg pl-3 mt-2 bg-transparent py-1 w-full bg-gray-800 text-white cursor-not-allowed" readOnly />
                 <label className="mt-4">¿Cuánto vas a apostar?</label>
                 {
                     usuario.monto > 1000 ?
